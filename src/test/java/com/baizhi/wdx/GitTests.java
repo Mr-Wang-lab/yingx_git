@@ -31,5 +31,14 @@ public class GitTests<pvsm> {
       
 
    }
+@Test
+   public void testquerysadad() {
+      int a =10;
+      int b = 30;
+      int c = a+b;
+      int  f =50+c
+      
+
+   }
 
 }
