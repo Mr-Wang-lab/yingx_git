@@ -36,7 +36,9 @@ public class GitTests<pvsm> {
       int a =10;
       int b = 30;
       int c = a+b;
-      int  f =50+c
+    int f = 50 + c;
+
+    System.out.println(f + "zhehsiyihangdaima");
       
 
    }
