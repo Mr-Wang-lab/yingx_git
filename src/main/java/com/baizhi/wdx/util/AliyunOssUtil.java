@@ -21,7 +21,7 @@ public class AliyunOssUtil {
     private static String accessKeyId = "LTAI4FuYtJia246XD7SK55nj";
     private static String accessKeySecret = "K1yNZh215gNbaXSVdhBM3c8LNYcS61";
 
-    private static String bucket="yingx-186wdx";
+    private static String bucket = "yingx-186wdx";
 
     /*
      *上传本地文件
@@ -30,7 +30,7 @@ public class AliyunOssUtil {
      *   fileName:  指定上传文件名  可以指定上传目录：  目录名/文件名
      *   localFilePath: 指定本地文件路径
      * */
-    public static void uploadFile(String bucket,String fileName,String localFilePath){
+    public static void uploadFile(String bucket, String fileName, String localFilePath) {
 
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
@@ -52,7 +52,7 @@ public class AliyunOssUtil {
      *   headImg: 指定MultipartFile类型的文件
      *   fileName:  指定上传文件名  可以指定上传目录：  目录名/文件名
      * */
-    public static void uploadFileBytes(String bucket,MultipartFile headImg, String fileName){
+    public static void uploadFileBytes(String bucket, MultipartFile headImg, String fileName) {
 
         //转为字节数组
         byte[] bytes = new byte[0];
@@ -63,7 +63,7 @@ public class AliyunOssUtil {
         }
 
         // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId,accessKeySecret);
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
         // 上传Byte数组。
         ossClient.putObject(bucket, fileName, new ByteArrayInputStream(bytes));
@@ -78,7 +78,7 @@ public class AliyunOssUtil {
      *   bucker: 存储空间名
      *   fileName:文件名    目录名/文件名
      * */
-    public static void delete(String bucket,String fileNme){
+    public static void delete(String bucket, String fileNme) {
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         // 删除文件。如需删除文件夹，请将ObjectName设置为对应的文件夹名称。如果文件夹非空，则需要将文件夹下的所有object删除后才能删除该文件夹。
@@ -86,6 +86,7 @@ public class AliyunOssUtil {
         // 关闭OSSClient。
         ossClient.shutdown();
     }
+
     /*
      * 视频截取  并上传至阿里云
      * 参数：
@@ -93,14 +94,14 @@ public class AliyunOssUtil {
      *   fileName:远程文件文件名    目录名/文件名
      *   coverName：截取的封面名
      * */
-    public static void videoCoverIntercept(String bucket,String fileNme,String coverName){
+    public static void videoCoverIntercept(String bucket, String fileNme, String coverName) {
 
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         // 设置视频截帧操作。
         String style = "video/snapshot,t_1000,f_jpg,w_0,h_0";
         // 指定过期时间为10分钟。
-        Date expiration = new Date(new Date().getTime() + 1000 * 60 * 10 );
+        Date expiration = new Date(new Date().getTime() + 1000 * 60 * 10);
         GeneratePresignedUrlRequest req = new GeneratePresignedUrlRequest(bucket, fileNme, HttpMethod.GET);
         req.setExpiration(expiration);
         req.setProcess(style);
@@ -123,11 +124,11 @@ public class AliyunOssUtil {
     }
 
     public static void main(String[] args) {
-        String bucket="yingx-186wdx";   //存储空间名
-        String fileName="2020视频.mp4";  //指定上传文件名  可以指定上传目录
-        String localFilePath="C:\\Users\\NANAN\\Desktop\\other\\video\\2020宣传视频.mp4";  //指定本地文件路径
+        String bucket = "yingx-186wdx";   //存储空间名
+        String fileName = "2020视频.mp4";  //指定上传文件名  可以指定上传目录
+        String localFilePath = "C:\\Users\\NANAN\\Desktop\\other\\video\\2020宣传视频.mp4";  //指定本地文件路径
 
         //调用测试方法
-        uploadFile(bucket,fileName,localFilePath);
+        uploadFile(bucket, fileName, localFilePath);
     }
 }

@@ -57,8 +57,8 @@ public class InterceptVideoPhotoUtil {
             /*     * @param videofile 源视频文件路径
              * @param framefile 截取帧的图片存放路径
              * */
-            String filePath="C:\\Users\\Administrator\\Desktop\\b49e7f35488b410320f07ef20cb1d3ed.mp4";
-            String targerFilePath="D:\\动画.jpg";
+            String filePath = "C:\\Users\\Administrator\\Desktop\\b49e7f35488b410320f07ef20cb1d3ed.mp4";
+            String targerFilePath = "D:\\动画.jpg";
             InterceptVideoPhotoUtil.fetchFrame(filePath, targerFilePath);
         } catch (Exception e) {
             e.printStackTrace();

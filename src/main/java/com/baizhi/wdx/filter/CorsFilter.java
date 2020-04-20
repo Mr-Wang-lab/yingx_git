@@ -21,13 +21,13 @@ public class CorsFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         //获取前台传过来的的域名,   参数：Origin：是前台传递域名的key
-        String originHeader=((HttpServletRequest) req).getHeader("Origin");
+        String originHeader = ((HttpServletRequest) req).getHeader("Origin");
         ArrayList<String> domainList = new ArrayList<>();
         domainList.add("http://localhost:9090"); //添加允许访问的域名
         domainList.add("http://localhost:9999");
         domainList.add("http://localhost:9191");
         //判断该域名是否在白名单中
-        if(domainList.contains(originHeader)){
+        if (domainList.contains(originHeader)) {
             response.setHeader("Access-Control-Allow-Origin", originHeader);
             response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
             response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -35,6 +35,10 @@ public class CorsFilter implements Filter {
 
         chain.doFilter(req, res);
     }
-    public void init(FilterConfig filterConfig) {}
-    public void destroy() {}
+
+    public void init(FilterConfig filterConfig) {
+    }
+
+    public void destroy() {
+    }
 }

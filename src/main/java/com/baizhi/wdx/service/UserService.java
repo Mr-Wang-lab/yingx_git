@@ -1,6 +1,5 @@
 package com.baizhi.wdx.service;
 
-import com.baizhi.wdx.entity.City;
 import com.baizhi.wdx.entity.User;
 import com.baizhi.wdx.vo.CityInfoVo;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,14 +11,13 @@ import java.util.List;
 
 public interface UserService {
     /**
-     *
      * @param page
      * @param rows
      * @return
      */
     List<CityInfoVo> userMap();
 
-    HashMap<String,Object> queryByuserCount();
+    HashMap<String, Object> queryByuserCount();
 
     HashMap<String, Object> queryByPage(Integer page, Integer rows);
 
@@ -30,6 +28,7 @@ public interface UserService {
     void update(User user);
 
     ArrayList<User> queryAll();
+
     void del(User user);
 
     void uploadUserAliyun(MultipartFile headImg, String id, HttpServletRequest request);

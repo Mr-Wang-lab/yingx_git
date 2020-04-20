@@ -1,7 +1,6 @@
 package com.baizhi.wdx;
 
 
-import com.baizhi.wdx.entity.Admin;
 import com.baizhi.wdx.repository.AdminRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

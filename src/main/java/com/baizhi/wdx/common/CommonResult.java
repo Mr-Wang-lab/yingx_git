@@ -12,7 +12,7 @@ public class CommonResult {
     private String message;
     private Object data;
 
-    public CommonResult success(String status,String message,Object data){
+    public CommonResult success(String status, String message, Object data) {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus(status);
         commonResult.setMessage(message);
@@ -20,7 +20,7 @@ public class CommonResult {
         return commonResult;
     }
 
-    public CommonResult success(String message,Object data){
+    public CommonResult success(String message, Object data) {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus("100");
         commonResult.setMessage(message);
@@ -28,7 +28,7 @@ public class CommonResult {
         return commonResult;
     }
 
-    public CommonResult success(Object data){
+    public CommonResult success(Object data) {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus("100");
         commonResult.setMessage("查询成功");
@@ -36,7 +36,7 @@ public class CommonResult {
         return commonResult;
     }
 
-    public CommonResult failed(String message,Object data){
+    public CommonResult failed(String message, Object data) {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus("104");
         commonResult.setMessage(message);
@@ -44,7 +44,7 @@ public class CommonResult {
         return commonResult;
     }
 
-    public CommonResult failed(Object data){
+    public CommonResult failed(Object data) {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus("104");
         commonResult.setMessage("查询失败");
@@ -52,7 +52,7 @@ public class CommonResult {
         return commonResult;
     }
 
-    public CommonResult failed(){
+    public CommonResult failed() {
         CommonResult commonResult = new CommonResult();
         commonResult.setStatus("104");
         commonResult.setMessage("查询失败");

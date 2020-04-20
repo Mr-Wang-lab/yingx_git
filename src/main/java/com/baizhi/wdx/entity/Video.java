@@ -13,9 +13,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name="yx_video")
+@Table(name = "yx_video")
 
-@Document(indexName = "yingxv",type = "video")
+@Document(indexName = "yingxv", type = "video")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,9 +23,9 @@ public class Video implements Serializable {
 
     @Id
     private String id;
-    @Field(type = FieldType.Text,analyzer = "ik_max_word",searchAnalyzer = "ik_max_word")
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
     private String title;
-    @Field(type = FieldType.Text,analyzer = "ik_max_word",searchAnalyzer = "ik_max_word")
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
     private String brief;
     @Field(type = FieldType.Keyword)
     private String path;

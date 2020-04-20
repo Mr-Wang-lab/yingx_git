@@ -16,9 +16,10 @@ public class LogController {
 
     @Resource
     LogService logService;
+
     @ResponseBody
     @RequestMapping("queryByPage")
-    public HashMap<String, Object> queryBypage(Integer page,Integer rows){
+    public HashMap<String, Object> queryBypage(Integer page, Integer rows) {
         HashMap<String, Object> map = logService.queryByPage(page, rows);
         return map;
     }

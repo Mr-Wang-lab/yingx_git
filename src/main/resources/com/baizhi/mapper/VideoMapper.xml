@@ -10,7 +10,8 @@
 
     <!--查询视频信息按时间排序-类别表 视频表 用户表  -->
     <select id="queryByReleaseTime" resultType="com.baizhi.wdx.po.VideoPo">
-        select <include refid="querySql" />
+        select
+        <include refid="querySql"/>
         from yx_category c
         right join yx_video v on c.id=v.category_id
         left join yx_user u on v.user_id=u.id

@@ -20,7 +20,6 @@ import io.goeasy.GoEasy;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -58,7 +57,7 @@ public class UserServiceImpl implements UserService {
         String content = JSON.toJSONString(list);
 
         //配置发送消息的必要配置  参数：regionHost,服务器地址,自己的appKey
-        GoEasy goEasy = new GoEasy( "http://rest-hangzhou.goeasy.io", "BC-49c4bb3ed91945448c35358477615835");
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-49c4bb3ed91945448c35358477615835");
 
         //配置发送消息  参数:管道名称（自定义）,发送内容
         goEasy.publish("186-yingxChanne", content);
@@ -71,6 +70,7 @@ public class UserServiceImpl implements UserService {
 
         return list;
     }
+
     @AddCache
     @Override
     public HashMap<String, Object> queryByuserCount() {
@@ -82,9 +82,9 @@ public class UserServiceImpl implements UserService {
         List<String> girls = Lists.newArrayList();
         for (Month month : monthBoy) {
             months.add(month.getMonth());
-            if (month.getSex().equals("男")){
+            if (month.getSex().equals("男")) {
                 boys.add(month.getValue());
-            }else {
+            } else {
                 girls.add(month.getValue());
             }
         }
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
         String content = JSON.toJSONString(map);
 
         //配置发送消息的必要配置  参数：regionHost,服务器地址,自己的appKey
-        GoEasy goEasy = new GoEasy( "http://rest-hangzhou.goeasy.io", "BC-49c4bb3ed91945448c35358477615835");
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-49c4bb3ed91945448c35358477615835");
 
         //配置发送消息  参数:管道名称（自定义）,发送内容
         goEasy.publish("186-yingxChannel", content);
@@ -109,6 +109,7 @@ public class UserServiceImpl implements UserService {
         return map;
 
     }
+
     @AddCache
     @Override
     public HashMap<String, Object> queryByPage(Integer page, Integer rows) {

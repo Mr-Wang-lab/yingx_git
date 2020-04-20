@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Table(name ="yx_log")
+@Table(name = "yx_log")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class Log implements Serializable {
     private String id;
 
     private String adminname;
-//"yyyy-MM-dd"
+    //"yyyy-MM-dd"
     @DateTimeFormat()
     private Date data;
 

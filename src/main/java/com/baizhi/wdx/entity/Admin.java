@@ -12,12 +12,12 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(indexName = "yingxs",type = "admin")
+@Document(indexName = "yingxs", type = "admin")
 public class Admin {
     @Id
-    private  String id;
-    @Field(type = FieldType.Text,analyzer = "ik_max_word",searchAnalyzer = "ik_max_word")
-    private  String username;
+    private String id;
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
+    private String username;
     @Field(type = FieldType.Keyword)
     private String password;
 

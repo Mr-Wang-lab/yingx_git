@@ -1,8 +1,7 @@
 package com.baizhi.wdx.controller;
-import com.baizhi.wdx.dao.AdminDao;
+
 import com.baizhi.wdx.entity.Admin;
 import com.baizhi.wdx.service.AdminService;
-import com.baizhi.wdx.serviceImpl.AdminServiceImpl;
 import com.baizhi.wdx.util.ImageCodeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,17 +25,17 @@ public class AdminController {
 
     @RequestMapping("getImgCode")
     @ResponseBody
-    public void getImgCode(HttpServletRequest request , HttpServletResponse response){
+    public void getImgCode(HttpServletRequest request, HttpServletResponse response) {
         //根据ImageCodeUtil获取随机字符
         String code = ImageCodeUtil.getSecurityCode();
-        System.out.println(code+"--------验证码");
-            //存储随机字符
-      request.getSession().setAttribute("imageCode", code);
+        System.out.println(code + "--------验证码");
+        //存储随机字符
+        request.getSession().setAttribute("imageCode", code);
         //生成图片
         BufferedImage image = ImageCodeUtil.createImage(code);
         //响应页面
         try {
-            ImageIO.write(image,"png",response.getOutputStream());
+            ImageIO.write(image, "png", response.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,17 +44,18 @@ public class AdminController {
 
     @RequestMapping("login")
     @ResponseBody
-    public   HashMap<String, Object> login(Admin admin,String enCode) {
+    public HashMap<String, Object> login(Admin admin, String enCode) {
 
         System.out.println(admin + enCode);
         //调用登陆业务方法
         HashMap<String, Object> map = adminService.login(admin, enCode);
         return map;
     }
+
     @RequestMapping("logout")
-    public String logout(HttpServletRequest request ){
+    public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.removeAttribute("admin");
-        return  "redirect:/login/login.jsp";
+        return "redirect:/login/login.jsp";
     }
 }

@@ -3,7 +3,7 @@
 
 <mapper namespace="com.baizhi.wdx.dao.AdminDao">
 
-    <select id="queryByUsername" resultType="com.baizhi.wdx.entity.Admin" >
+    <select id="queryByUsername" resultType="com.baizhi.wdx.entity.Admin">
         select id,username,password from yx_admin where username=#{username}
     </select>
 

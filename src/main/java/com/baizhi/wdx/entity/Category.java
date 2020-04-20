@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Table(name ="yx_category")
+@Table(name = "yx_category")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,9 +20,8 @@ public class Category implements Serializable {
     private String cateName;
 
     private Integer levels;
-    @Column(name ="parent_id")
+    @Column(name = "parent_id")
     private String parentId;
-
 
 
 }

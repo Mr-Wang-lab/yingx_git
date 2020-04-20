@@ -22,7 +22,7 @@ public class LogServiceImpl implements LogService {
     @AddCache
     @Override
     public HashMap<String, Object> queryByPage(Integer page, Integer rows) {
-        System.out.println("page::++"+page);
+        System.out.println("page::++" + page);
 
         HashMap<String, Object> map = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class LogServiceImpl implements LogService {
         Integer records = logMapper.selectCountByExample(example);
         map.put("records", records);
         Integer records1 = (Integer) map.get("records");
-        System.out.println("records1;;;"+records1);
+        System.out.println("records1;;;" + records1);
         //总页数   total   总条数/每页展示条数  是否有余数
         Integer total = records % rows == 0 ? records / rows : records / rows + 1;
         map.put("total", total);
@@ -46,8 +46,8 @@ public class LogServiceImpl implements LogService {
         List<Log> logs = logMapper.selectByRowBounds(new Log(), rowBounds);
         map.put("rows", logs);
 
-    //    Integer rows1 = (Integer) map.get("rows");
-        System.out.println("rows1: "+map.get("rows"));
+        //    Integer rows1 = (Integer) map.get("rows");
+        System.out.println("rows1: " + map.get("rows"));
         return map;
     }
 }

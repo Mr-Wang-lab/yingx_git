@@ -2,7 +2,6 @@ package com.baizhi.wdx.controller;
 
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
-import com.baizhi.wdx.entity.City;
 import com.baizhi.wdx.entity.User;
 import com.baizhi.wdx.service.UserService;
 import com.baizhi.wdx.util.AliyunSendPhoneUtil;
@@ -15,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,7 +35,7 @@ public class UserController {
     @ResponseBody
     public HashMap<String, Object> queryByPage(Integer page, Integer rows) {
 
-         HashMap<String, Object> map = userService.queryByPage(page, rows);
+        HashMap<String, Object> map = userService.queryByPage(page, rows);
 
 
         return map;
@@ -104,9 +102,10 @@ public class UserController {
         }
 
     }
+
     @RequestMapping("userMap")
     @ResponseBody
-    public List<CityInfoVo>  userMap(){
+    public List<CityInfoVo> userMap() {
 
         System.out.println("senEXCLE");
 
@@ -115,7 +114,7 @@ public class UserController {
 
     @RequestMapping("queryByuserCount")
     @ResponseBody
-    public HashMap<String, Object> queryByuserCount(){
+    public HashMap<String, Object> queryByuserCount() {
         HashMap<String, Object> map = userService.queryByuserCount();
         return map;
     }

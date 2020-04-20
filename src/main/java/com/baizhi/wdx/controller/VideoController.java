@@ -5,7 +5,6 @@ import com.baizhi.wdx.service.VideoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ public class VideoController {
     //分页查询视频
     @ResponseBody
     @RequestMapping("queryByPage")
-    public HashMap<String,Object> queryBypage(Integer page,Integer rows){
+    public HashMap<String, Object> queryBypage(Integer page, Integer rows) {
         System.out.println("VIDEO  +++CONTROLLER");
 
         HashMap<String, Object> map = videoService.queryByPage(page, rows);
@@ -59,6 +58,7 @@ public class VideoController {
     public void uploadVdieo(MultipartFile path, String id, HttpServletRequest request) {
         videoService.uploadVdieos(path, id, request);
     }
+
     @ResponseBody
     @RequestMapping("querySearch")
     public List<Video> querySearch(String content) {

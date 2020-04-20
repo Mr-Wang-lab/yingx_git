@@ -11,6 +11,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class City implements Serializable {
 
-    private  String name;
-    private  String value;
+    private String name;
+    private String value;
 }

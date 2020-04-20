@@ -16,24 +16,25 @@ import java.util.List;
 @RequestMapping("app")
 public class AppInterfaceController {
 
-        @Resource
+    @Resource
     VideoService videoService;
-        @RequestMapping("getPhoneCode")
-        public CommonResult getPhoneCode(String phone){
-            String random = AliyunSendPhoneUtil.getRandom(6);
-            System.out.println("存储验证码：："+random);
 
-            String message = AliyunSendPhoneUtil.sendCode(phone,random);
+    @RequestMapping("getPhoneCode")
+    public CommonResult getPhoneCode(String phone) {
+        String random = AliyunSendPhoneUtil.getRandom(6);
+        System.out.println("存储验证码：：" + random);
 
-            if(message.equals("发送成功")){
-                return new CommonResult().success("100",message,phone);
-            }else {
-                return new CommonResult().failed("发送失败:"+message,null);
-            }
+        String message = AliyunSendPhoneUtil.sendCode(phone, random);
+
+        if (message.equals("发送成功")) {
+            return new CommonResult().success("100", message, phone);
+        } else {
+            return new CommonResult().failed("发送失败:" + message, null);
         }
+    }
 
     @RequestMapping("queryByReleaseTime")
-    public CommonResult queryByReleaseTime(){
+    public CommonResult queryByReleaseTime() {
         try {
             //查询数据
             List<VideoVo> videoVos = videoService.queryByReleaseTime();

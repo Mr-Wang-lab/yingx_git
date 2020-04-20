@@ -11,8 +11,11 @@ public interface CityMapper extends Mapper<User> {
 
 
     List<City> queryBoyAndCity();
+
     List<City> queryGrilAndCity();
+
     List<Month> queryBoyCount();
+
     List<Month> queryGirlCount();
 
 
